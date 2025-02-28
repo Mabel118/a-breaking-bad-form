@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Br & Ba</title>
+</head>
+
+<style>
+  body {
+    margin: 20px 25px 100px;
+  }
+  .box {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.8em;
+    display: block;
+    font-size: 15px;
+  }
+
+  .button {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.8rem;
+    margin: 0.2em;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    border-radius: 15px;
+    border-width: 1px;
+  }
+
+  .button1 {
+    font-family:'Courier New', Courier, monospace;
+    margin-top: 15px;
+    padding: 0.2rem;
+  }
+
+  #todaydate {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem;
+    border-radius: 15px;
+    border-width: 1px;
+  }
+
+  #choose {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem;
+    border-radius: 15px;
+    border-width: 1px;
+  }
+
+  input[type="checkbox"],[type="radio"],[type="range"]{
+        	accent-color: #109c19;
+        	/* Green color */
+    	}
+
+/* Mobile Phones */
+@media screen and (max-width: 700px) {
+  body {
+    max-width: 90%;
+    margin: 30px 30px 100px;
+  }
+
+  .box {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.8em;
+    display: block;
+    font-size: 10px;
+    margin: 8px 8px 0px;
+  }
+
+  .button {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.5rem;
+    margin: 0.2em;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    border-radius: 9px;
+    border-width: 1px;
+  }
+
+  .button1 {
+    font-family:'Courier New', Courier, monospace;
+    padding: 0.2rem;
+    font-size: 10px;
+    border-radius: 30px;
+  }
+
+  #todaydate {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 12px;
+    padding: 0.5rem;
+    border-radius: 9px;
+    border-width: 1px;
+  }
+
+  #choose {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px 0;
+    padding: 0.5rem;
+    border-radius: 9px;
+    border-width: 1px;
+  }
+}
+  
+</style>
+
+<body>
+  <form id="myForm" action="https://formsubmit.co/lokm942@newschool.edu" method="POST">
+    <div class="box">
+      <p>What mood are you in?</p>
+      <input type="color" id="colorPicker"/>
+    </div>
+    
+    <div class="box">
+      <label for="inputid">Say My Name!:</label>
+      <input type="text" id="inputid" name="inputid" class="button"/>
+    </div>
+  
+    <div class="box">
+      <span>It's Time (</span> <input type="datetime-local" name="todaydate" id="todaydate"/><span> ) to Call:</span>
+      <select id="choose" name="choose">
+        <option value="pinkman">Jesse Pinkman.</option>
+        <option value="hank">Hank.</option>
+        <option value="gus">Gus Fring.</option>
+        <option value="saul">Saul Goodman.</option>
+        <option value="skyler">Skyler White.</option>
+        <option value="mike">Mike.</option>
+        </select>
+    </div>
+
+    <div class="box">
+      <p>Cuz I am...</p>
+      <div>
+        <input type="radio" id="trouble" name="iam"/>
+        <label for="trouble">in GODDAMN TROUBLE!!!</label>
+      </div>
+      <div>
+        <input type="radio" id="miss" name="iam"/>
+        <label for="miss">missing them...</label>
+      </div>
+      <div>
+        <input type="radio" id="hands" name="iam"/>
+        <label for="hands">getting out of hands.</label>
+      </div>
+      <div>
+        <input type="radio" id="talk" name="iam"/>
+        <label for="talk">thinking we need to talk.</label>
+      </div>
+      <div>
+        <input type="radio" id="cook" name="iam"/>
+        <label for="cook">in urge to start cooking...</label>
+      </div>
+    </div>
+
+    <div class="box">
+      <div>
+        <span>How pure is the blue-thing this time?</span>
+        <input type="number" class="button" id="blue" name="blue" min="1" max="100" step="0.01" />
+        <span>%</span>
+      </div>
+      <div>
+        <input type="range" id="volume" name="volume" min="0" max="100"  />
+      </div>
+    </div>
+
+    <div class="box">
+      <p>What are you staring at! Are you in or no?</p>
+      <input type="checkbox" id="yes" name="yerorno" class="single-choice"/>
+      <label for="yes">Yes!</label>
+      <input type="checkbox" id="no" name="yesorno" class="single-choice"/>
+      <label for="no">Nooo...I am Heisenberg, wdym?</label>
+    </div>
+
+    <script>
+      const checkboxes = document.querySelectorAll('.single-choice');
+    
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          checkboxes.forEach(otherCheckbox => {
+            if (otherCheckbox !== this) {
+              otherCheckbox.checked = false; 
+            }
+          });
+        });
+      });
+
+      const colorInput = document.getElementById("colorPicker");
+
+  colorInput.addEventListener("input", function () {
+    document.body.style.backgroundColor = colorInput.value;
+  });
+    </script>
+
+<div class="box">
+  <p>Your name (nickname will do):</p>
+  <input type="text" class="button" id="yourname" placeholder="W.W."/>
+  <p>Your email (like anything w/ @):</p>
+  <input type="email" class="button" id="email" name="email" placeholder="ww@saymyname.com"/>
+</div>
+
+<div class="box">
+  <button type="button" class="button1" id="fakeButton">Eh Don't Click Me</button>
+</div>  
+
+<p class="box" id="randomPhrase"></p>
+
+<div class="box">
+  <button type="submit" class="button1">Actually Click Me</button>
+</div>
+</form>
+
+<script>
+  // List of random phrases
+  const phrases = [
+    "Hey! Look I told you, you might lose everything...",
+    "Unless...say my name again",
+    "I am the danger.",
+    "I lost everything... I don't want you to.",
+    "Yeah, that's chemistry.",
+    "I don't even know who I wanted to call",
+    ""
+  ];
+
+  document.getElementById("fakeButton").addEventListener("click", function() {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    document.getElementById("randomPhrase").innerText = phrases[randomIndex];
+  });
+
+  document.getElementById("myForm").addEventListener("submit", function (event) {
+    console.log("Form Submitted!")
+  });
+</script>
+  
+</body>
+</html>
+
